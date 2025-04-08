@@ -1,4 +1,4 @@
-package model.People;
+package model.people;
 
 import java.time.LocalDate;
 
@@ -11,11 +11,10 @@ public class Guest extends Person {
             String name,
             String cpf,
             LocalDate birthDate,
-            int reservationCount,
             LocalDate accountCreationDate,
             LocalDate lastReservationDate) {
         super(name, cpf, birthDate);
-        this.reservationCount = reservationCount;
+        this.reservationCount = 0;
         this.accountCreationDate = accountCreationDate;
         this.lastReservationDate = lastReservationDate;
     }

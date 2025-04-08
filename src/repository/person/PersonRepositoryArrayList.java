@@ -1,7 +1,7 @@
-package repository;
+package repository.person;
 
 import interfaces.IRepository;
-import model.People.Person;
+import model.people.Person;
 
 import java.util.ArrayList;
 import java.util.List;
