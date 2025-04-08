@@ -8,13 +8,13 @@ public abstract class Person {
     private final UUID id;
     private String name;
     private String cpf;
-    private LocalDate dateOfBirth;
+    private LocalDate birthDate;
 
-    protected Person(String name, String cpf, LocalDate dateOfBirth) {
+    protected Person(String name, String cpf, LocalDate birthDate) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.cpf = cpf;
-        this.dateOfBirth = dateOfBirth;
+        this.birthDate = birthDate;
     }
 
     public UUID getId() {
@@ -37,21 +37,21 @@ public abstract class Person {
         this.cpf = cpf;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     @Override
     public String toString() {
         return "Pessoa{" +
-                "id=" + id +
-                ", nome='" + name + '\'' +
-                ", cpf='" + cpf + '\'' +
-                ", dataNascimento=" + dateOfBirth +
+                "id=" + this.id +
+                ", name='" + this.name + '\'' +
+                ", cpf='" + this.cpf + '\'' +
+                ", birthDate=" + this.birthDate +
                 '}';
     }
 
