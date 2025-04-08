@@ -1,4 +1,4 @@
-package model;
+package model.People;
 
 import java.time.LocalDate;
 import java.util.Objects;
