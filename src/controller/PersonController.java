@@ -4,6 +4,7 @@ import model.people.Person;
 import model.people.Guest;
 import model.people.Employee;
 import repository.person.PersonRepositoryHashMap;
+import services.Auth;
 
 import java.util.List;
 import java.util.UUID;
@@ -41,5 +42,9 @@ public class PersonController {
 
     public List<Person> listEmployees() {
         return repository.getByType(Employee.class);
+    }
+
+    public Person login(String email, String password){
+        return Auth.login(email, password, repository);
     }
 }
