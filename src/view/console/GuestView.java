@@ -45,10 +45,19 @@ public class GuestView {
         System.out.print("Data de nascimento (AAAA-MM-DD): ");
         LocalDate birthDate = LocalDate.parse(scanner.nextLine());
 
+        System.out.print("Telefone: ");
+        String phone = scanner.nextLine();
+
+        System.out.print("E-mail: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String password = scanner.nextLine();
+
         LocalDate accountCreationDate = LocalDate.now();
         LocalDate lastReservationDate = LocalDate.now();
 
-        Guest guest = new Guest(name, cpf, birthDate, accountCreationDate, lastReservationDate);
+        Guest guest = new Guest(name, cpf, birthDate, email, password, phone, accountCreationDate, lastReservationDate);
         controller.registerPerson(guest);
 
         System.out.println("Hóspede cadastrado com sucesso!");

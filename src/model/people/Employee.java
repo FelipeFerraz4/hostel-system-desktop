@@ -8,9 +8,18 @@ public class Employee extends Person {
     private final LocalDate hireDate;
     private boolean active;
 
-    public Employee(String name, String cpf, LocalDate birthDate, String position,
-                    double salary, LocalDate hireDate, boolean active) {
-        super(name, cpf, birthDate);
+    public Employee(
+            String name,
+            String cpf,
+            LocalDate birthDate,
+            String email,
+            String password,
+            String phone,
+            String position,
+            double salary,
+            LocalDate hireDate,
+            boolean active) {
+        super(name, cpf, birthDate, email, password, phone);
         this.position = position;
         this.salary = salary;
         this.hireDate = hireDate;
@@ -52,6 +61,9 @@ public class Employee extends Person {
                 ", name='" + this.getName() + '\'' +
                 ", cpf='" + this.getCpf() + '\'' +
                 ", birthDate=" + this.getBirthDate() +
+                ", email='" + this.getEmail() + '\'' +
+                ", password='" + this.getPassword() + '\'' +
+                ", phone='" + this.getPhone() + '\'' +
                 ", position='" + this.position + '\'' +
                 ", salary=" + this.salary +
                 ", hireDate=" + this.hireDate +

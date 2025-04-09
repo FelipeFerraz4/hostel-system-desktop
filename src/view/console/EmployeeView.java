@@ -42,6 +42,9 @@ public class EmployeeView {
         System.out.print("CPF: ");
         String cpf = scanner.nextLine();
 
+        System.out.print("Telefone: ");
+        String phone = scanner.nextLine();
+
         System.out.print("Data de Nascimento (AAAA-MM-DD): ");
         LocalDate birthDate = LocalDate.parse(scanner.nextLine());
 
@@ -52,16 +55,21 @@ public class EmployeeView {
         double salary = scanner.nextDouble();
         scanner.nextLine();
 
+        System.out.print("E-mail: ");
+        String email = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String password = scanner.nextLine();
+
         LocalDate hireDate = LocalDate.now();
 
         boolean active = true;
 
-        Employee employee = new Employee(name, cpf, birthDate, position, salary, hireDate, active);
+        Employee employee = new Employee(name, cpf, birthDate, email, password, phone, position, salary, hireDate, active);
         controller.registerPerson(employee);
 
         System.out.println("Funcionário cadastrado com sucesso!");
     }
-
 
     private void listEmployees() {
         System.out.println("\n--- Lista de Funcionários ---");

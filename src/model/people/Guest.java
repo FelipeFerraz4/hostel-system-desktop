@@ -11,9 +11,12 @@ public class Guest extends Person {
             String name,
             String cpf,
             LocalDate birthDate,
+            String email,
+            String password,
+            String phone,
             LocalDate accountCreationDate,
             LocalDate lastReservationDate) {
-        super(name, cpf, birthDate);
+        super(name, cpf, birthDate, email, password, phone);
         this.reservationCount = 0;
         this.accountCreationDate = accountCreationDate;
         this.lastReservationDate = lastReservationDate;
@@ -46,6 +49,9 @@ public class Guest extends Person {
                 ", name='" + this.getName() + '\'' +
                 ", cpf='" + this.getCpf() + '\'' +
                 ", birthDate=" + this.getBirthDate() +
+                ", email='" + this.getEmail() + '\'' +
+                ", password='" + this.getPassword() + '\'' +
+                ", phone='" + this.getPhone() + '\'' +
                 ", reservationCount=" + this.reservationCount +
                 ", accountCreationDate=" + this.accountCreationDate +
                 ", lastReservationDate=" + this.lastReservationDate +

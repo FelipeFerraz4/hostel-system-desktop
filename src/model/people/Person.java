@@ -9,12 +9,18 @@ public abstract class Person {
     private String name;
     private String cpf;
     private LocalDate birthDate;
+    private String email;
+    private String password;
+    private String phone;
 
-    protected Person(String name, String cpf, LocalDate birthDate) {
+    protected Person(String name, String cpf, LocalDate birthDate, String email, String password, String phone) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.cpf = cpf;
         this.birthDate = birthDate;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
     }
 
     public UUID getId() {
@@ -45,13 +51,40 @@ public abstract class Person {
         this.birthDate = birthDate;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
-                "id=" + this.id +
-                ", name='" + this.name + '\'' +
-                ", cpf='" + this.cpf + '\'' +
-                ", birthDate=" + this.birthDate +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", birthDate=" + birthDate +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 
