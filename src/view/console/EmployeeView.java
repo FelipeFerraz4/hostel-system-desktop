@@ -63,9 +63,7 @@ public class EmployeeView {
 
         LocalDate hireDate = LocalDate.now();
 
-        boolean active = true;
-
-        Employee employee = new Employee(name, cpf, birthDate, email, password, phone, position, salary, hireDate, active);
+        Employee employee = new Employee(name, cpf, birthDate, email, password, phone, position, salary, hireDate);
         controller.registerPerson(employee);
 
         System.out.println("Funcionário cadastrado com sucesso!");

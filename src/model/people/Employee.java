@@ -17,13 +17,12 @@ public class Employee extends Person {
             String phone,
             String position,
             double salary,
-            LocalDate hireDate,
-            boolean active) {
+            LocalDate hireDate) {
         super(name, cpf, birthDate, email, password, phone);
         this.position = position;
         this.salary = salary;
         this.hireDate = hireDate;
-        this.active = active;
+        this.active = true;
     }
 
     public String getPosition() {

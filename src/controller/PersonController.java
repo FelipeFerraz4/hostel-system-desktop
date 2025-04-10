@@ -6,6 +6,7 @@ import model.people.Employee;
 import repository.person.PersonRepositoryHashMap;
 import services.Auth;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,6 +15,17 @@ public class PersonController {
 
     public PersonController() {
         this.repository = new PersonRepositoryHashMap();
+        Employee admin = new Employee(
+                "admin",
+                "99988833300",
+                LocalDate.parse("2000-01-01"),
+                "admin@gmail.com",
+                "123456",
+                "",
+                "Gerente",
+                15000,
+                LocalDate.parse("2015-06-06"));
+        this.registerPerson(admin);
     }
 
     public void registerPerson(Person person) {
