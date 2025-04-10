@@ -1,9 +1,7 @@
 package view.console;
 
 import controller.PersonController;
-import model.people.Guest;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class GuestView {
@@ -27,44 +25,9 @@ public class GuestView {
             scanner.nextLine();
 
             switch (option) {
-                case 1 -> registerGuest();
-                case 2 -> listGuests();
                 case 0 -> System.out.println("Voltando ao menu principal...");
                 default -> System.out.println("Opção inválida.");
             }
         } while (option != 0);
-    }
-
-    private void registerGuest() {
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("CPF: ");
-        String cpf = scanner.nextLine();
-
-        System.out.print("Data de nascimento (AAAA-MM-DD): ");
-        LocalDate birthDate = LocalDate.parse(scanner.nextLine());
-
-        System.out.print("Telefone: ");
-        String phone = scanner.nextLine();
-
-        System.out.print("E-mail: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Senha: ");
-        String password = scanner.nextLine();
-
-        LocalDate accountCreationDate = LocalDate.now();
-        LocalDate lastReservationDate = LocalDate.now();
-
-        Guest guest = new Guest(name, cpf, birthDate, email, password, phone, accountCreationDate, lastReservationDate);
-        controller.registerPerson(guest);
-
-        System.out.println("Hóspede cadastrado com sucesso!");
-    }
-
-    private void listGuests() {
-        System.out.println("\n--- Lista de Hóspedes ---");
-        controller.listGuests().forEach(System.out::println);
     }
 }
