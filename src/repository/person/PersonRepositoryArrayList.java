@@ -44,9 +44,13 @@ public class PersonRepositoryArrayList implements IRepository<Person> {
 
     @Override
     public void delete(UUID id) {
-        people.removeIf(person -> person.getId().equals(id));
+        for (Person person : people) {
+            if (person.getId().equals(id)) {
+                person.setStatus(false);
+                break;
+            }
+        }
     }
-
     public List<Person> getByType(Class<?> clazz) {
         List<Person> result = new ArrayList<>();
         for (Person person : people) {

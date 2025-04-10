@@ -12,6 +12,7 @@ public abstract class Person {
     private String email;
     private String password;
     private String phone;
+    private boolean status;
 
     protected Person(String name, String cpf, LocalDate birthDate, String email, String password, String phone) {
         this.id = UUID.randomUUID();
@@ -21,6 +22,7 @@ public abstract class Person {
         this.email = email;
         this.password = password;
         this.phone = phone;
+        this.status = true;
     }
 
     public UUID getId() {
@@ -74,6 +76,10 @@ public abstract class Person {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public boolean getStatus(){ return this.status; }
+
+    public void setStatus(boolean status) { this.status = status; }
 
     @Override
     public String toString() {

@@ -33,7 +33,10 @@ public class PersonRepositoryHashMap implements IRepository<Person> {
 
     @Override
     public void delete(UUID id) {
-        storage.remove(id);
+        Person person = storage.get(id);
+        if (person != null) {
+            person.setStatus(false);
+        }
     }
 
     public List<Person> getByType(Class<?> clazz) {
