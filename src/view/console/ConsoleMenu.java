@@ -1,7 +1,6 @@
 package view.console;
 
 import controller.PersonController;
-import model.people.Guest;
 import model.people.Person;
 
 import java.time.LocalDate;
@@ -78,8 +77,7 @@ public class ConsoleMenu {
         LocalDate accountCreationDate = LocalDate.now();
         LocalDate lastReservationDate = LocalDate.now();
 
-        Guest guest = new Guest(name, cpf, birthDate, email, password, phone, accountCreationDate, lastReservationDate);
-        controller.registerPerson(guest);
+        controller.registerGuest(name, cpf, birthDate, email, password, phone, accountCreationDate, lastReservationDate);
 
         System.out.println("Hóspede cadastrado com sucesso!");
     }

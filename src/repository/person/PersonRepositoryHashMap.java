@@ -1,11 +1,12 @@
 package repository.person;
 
+import interfaces.IPersonRepository;
 import interfaces.IRepository;
 import model.people.Person;
 
 import java.util.*;
 
-public class PersonRepositoryHashMap implements IRepository<Person> {
+public class PersonRepositoryHashMap implements IRepository<Person>, IPersonRepository {
     private final Map<UUID, Person> storage = new HashMap<>();
 
     @Override
@@ -24,6 +25,36 @@ public class PersonRepositoryHashMap implements IRepository<Person> {
     }
 
     @Override
+    public Person searchByName(String name) {
+        for (Person person : storage.values()) {
+            if (person.getName().equalsIgnoreCase(name)) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Person searchByEmail(String email) {
+        for (Person person : storage.values()) {
+            if (person.getEmail().equalsIgnoreCase(email)) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public Person searchByCpf(String cpf) {
+        for (Person person : storage.values()) {
+            if (person.getCpf().equals(cpf)) {
+                return person;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public void update(Person person) {
         UUID id = person.getId();
         if (storage.containsKey(id)) {
@@ -39,6 +70,7 @@ public class PersonRepositoryHashMap implements IRepository<Person> {
         }
     }
 
+    @Override
     public List<Person> getByType(Class<?> clazz) {
         List<Person> result = new ArrayList<>();
         for (Person p : storage.values()) {

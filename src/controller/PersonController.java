@@ -4,7 +4,8 @@ import model.people.Person;
 import model.people.Guest;
 import model.people.Employee;
 import repository.person.PersonRepositoryHashMap;
-import services.Auth;
+import services.AuthServices;
+import services.UserServices;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -25,11 +26,32 @@ public class PersonController {
                 "Gerente",
                 15000,
                 LocalDate.parse("2015-06-06"));
-        this.registerPerson(admin);
+        this.repository.add(admin);
     }
 
-    public void registerPerson(Person person) {
-        repository.add(person);
+    public void registerGuest(
+            String name,
+            String cpf,
+            LocalDate birthDate,
+            String email,
+            String password,
+            String phone,
+            LocalDate accountCreationDate,
+            LocalDate lastReservationDate) {
+        UserServices.RegistreGuest(name, cpf, birthDate, email, password, phone, accountCreationDate, lastReservationDate, repository);
+    }
+
+    public void registerEmployee(
+            String name,
+            String cpf,
+            LocalDate birthDate,
+            String email,
+            String password,
+            String phone,
+            String position,
+            double salary,
+            LocalDate hireDate){
+        UserServices.RegistreEmployee(name, cpf, birthDate, email, password, phone, position, salary, hireDate, repository);
     }
 
     public List<Person> listAll() {
@@ -38,6 +60,18 @@ public class PersonController {
 
     public Person findById(UUID id) {
         return repository.searchById(id);
+    }
+
+    public Person findByName(String name){
+        return repository.searchByName(name);
+    }
+
+    public Person findByCPF(String cpf){
+        return repository.searchByCpf(cpf);
+    }
+
+    public Person findByEmail(String email){
+        return repository.searchByEmail(email);
     }
 
     public void updatePerson(Person updatedPerson) {
@@ -57,6 +91,6 @@ public class PersonController {
     }
 
     public Person login(String email, String password){
-        return Auth.login(email, password, repository);
+        return AuthServices.login(email, password, repository);
     }
 }

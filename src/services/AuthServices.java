@@ -3,7 +3,7 @@ package services;
 import interfaces.IRepository;
 import model.people.Person;
 
-public class Auth {
+public class AuthServices {
 
     public static Person login(String email, String password, IRepository<Person> repository) {
         for (Person person : repository.search()) {
